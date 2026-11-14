@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[100];
+    int n, i, j;
+    int nextGreater;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements: ");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Next greater elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        nextGreater = -1;
+
+        // Search elements on the right
+        for(j = i + 1; j < n; j++)
+        {
+            if(arr[j] > arr[i])
+            {
+                nextGreater = arr[j];
+                break;
+            }
+        }
+
+        printf("%d", nextGreater);
+
+        if(i < n - 1)
+        {
+            printf(", ");
+        }
+    }
+
+    return 0;
+}
